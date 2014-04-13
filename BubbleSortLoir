@@ -1,0 +1,37 @@
+import javax.swing.JOptionPane;
+public class AplicacaoBolha {
+	public static void main(String[] args) {
+		int[] vet = {21,7,9,3,2,13,45,82};
+	    int aux = 0; // variável auxiliar
+	    int i = 0; 
+	    String aux2 = "";// auxiliar que vai passar valor desordenado para a saída de dados
+	    String aux3 = "";// auxiliar que receberá os valores de todo o vetor ordenados
+	    int cont = 0;
+	     
+	    	for(i = 0; i<vet.length; i++){
+	    	     aux2 += vet[i] + "\n";
+	      }
+	    	//Looping para ler o vetor desordenado;
+	    JOptionPane.showMessageDialog(null, aux2); //Mostrando vetor desordenado
+	    //Looping para iniciar a comparação da posição 0 que é determinada por vet[i] com a próxima que é vet[j]
+	    	for(i = 0; i<vet.length; i++){
+	    		for(int j = 0; j<vet.length -1; j++){
+	    			if(vet[j] > vet[j + 1]){ // Se a variavel j for maior que a variável próxima posição
+	                aux = vet[j];// aux recebe o valor da variável na posição j
+	                cont ++;// incrementa o contador de operações
+	                vet[j] = vet[j+1];// Próxima variável da posição j assume sua posição posterior a posição j
+	                cont ++;// incrementa contador para próxima operação de comparação
+	                vet[j+1] = aux;//posição de próxima assumiu seu lugar na iteração J recebe o valor de auxiliar
+	                cont ++;// incrementa o contador na troca de posição da posição da variável auxiliar.
+	            }
+	        }
+	    }
+	    for(i = 0; i<vet.length; i++){
+	    	aux3 += vet[i] + "\n";//Vetor na posição i recebe a auxiliar ordenada.
+	    }
+	    JOptionPane.showMessageDialog(null, aux3);
+	    JOptionPane.showMessageDialog(null, "Foram feitas " + cont + " comparações");
+	}
+}
+
+
